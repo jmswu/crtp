@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.18)
 project(test)
 
 set (CMAKE_CXX_STANDARD 17)
+set (CMAKE_C_STANDARD 99)
 
 set(SRC_FOLDER src)
 
@@ -11,8 +12,12 @@ set(SRC_FOLDER src)
 
 #add_subdirectory(googletest)
 add_executable(${PROJECT_NAME} 
-        ./${SRC_FOLDER}/main.cpp
-    )
+    ./${SRC_FOLDER}/main.cpp
+)
+
+add_executable(test-main
+    ./${SRC_FOLDER}/main-app.cpp
+)
 #target_link_libraries(${PROJECT_NAME} pthread gtest gtest_main)
 
 set(GCC_X_COVERAGE_COMPILE_FLAGS "-Os -Werror -Wall -Wextra -Wpointer-arith -Wcast-align -Wwrite-strings -Wswitch-default -Wunreachable-code -Winit-self -Wmissing-field-initializers -Wno-unknown-pragmas -Wstrict-prototypes -Wundef -Wold-style-definition -Wno-misleading-indentation")
